@@ -17,23 +17,22 @@ const app = express()
 app.use(express.json());
 
 app.use(cors({
-    origin: "*",
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    origin: true,
+    credentials: true
 }));
 
 //user
 app.use("/api/auth",authRoutes)
-app.use("/api",musicRoutes)
-app.use("/api",favAndFollowRoutes)
-app.use("/api",artistRoutes)
-app.use("/api",playlistRoutes)
+app.use("/api/music",musicRoutes)
+app.use("/api/user",favAndFollowRoutes)
+app.use("/api/artist",artistRoutes)
+app.use("/api/playlist",playlistRoutes)
 
 //admin
 app.use("/api/admin/auth",adminAuthRoutes)
-app.use("/api/admin",approvalRoutes)
-app.use("/api/admin",userDataRoutes)
-app.use("/api/admin",dashboardRoutes)
+app.use("/api/admin/approval",approvalRoutes)
+app.use("/api/admin/data",userDataRoutes)
+app.use("/api/admin/dashboard",dashboardRoutes)
 
 
 

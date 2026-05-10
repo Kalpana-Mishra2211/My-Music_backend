@@ -11,27 +11,27 @@ const upload = multer({ storage });
 
 
 routes.post(
-  "/playlist",
+  "/",
   authUser,
   upload.single("image"),
   createPlaylist
 );
 routes.get(
-  "/playlist",
+  "/",
   authUser,
   getPlaylistList
 );
 
 routes.get(
-  "/playlist/:id",
+  "/:id",
   authUser,
   getPlaylistById
 );
 
-routes.put("/playlist/:id", authUser,
+routes.put("/:id", authUser,
   upload.single("image"), updatePlaylist)
 
-  routes.delete("/playlist/:id",authUser,deletePlaylist)
+  routes.delete("/:id",authUser,deletePlaylist)
 
 
 

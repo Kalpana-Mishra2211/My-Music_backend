@@ -8,7 +8,7 @@ const upload = multer({
 const routes = express.Router();
 
 routes.post(
-    "/music",
+    "/",
     authArtist,
     upload.fields([
         { name: "music", maxCount: 1 },
@@ -16,16 +16,17 @@ routes.post(
     ]),
     createMusic
 );
+routes.get("/", authUser, getAllMusic)
+routes.delete("/:musicId",authUser,deleteMusic)
+
 routes.post(
   "/album",
   authArtist,
   upload.single("image"),
   createAlbum
 );
-routes.get("/music", authUser, getAllMusic)
 routes.get("/album", authUser, getAllAlbum)
-routes.get("/album/:id/music", authUser, getMusicByAlbum)
-routes.delete("/music/:musicId",authUser,deleteMusic)
+routes.get("/album/:id", authUser, getMusicByAlbum)
 routes.delete("/album/:albumId",authUser,deleteAlbum)
 routes.put(
   "/album/:albumId",

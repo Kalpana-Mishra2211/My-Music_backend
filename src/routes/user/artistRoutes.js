@@ -17,9 +17,9 @@ routes.put(
 );
 routes.get("/profile",authUser, getUserProfile);
 routes.get("/stats",authUser,getStats);
-routes.get("/artist",authUser,getArtists)
-routes.get("/artist/details/:id",authUser,getArtistDetails)
-routes.get("/artist/music/:id",authUser,getMusicByArtist)
+routes.get("/",authUser,getArtists)
+routes.get("/details/:id",authUser,getArtistDetails)
+routes.get("/music/:id",authUser,getMusicByArtist)
 
 
 
