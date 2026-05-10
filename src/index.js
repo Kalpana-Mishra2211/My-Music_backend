@@ -10,13 +10,11 @@ import adminAuthRoutes from "./routes/admin/adminAuthRoutes.js"
 import userDataRoutes from "./routes/admin/userDataRoutes.js"
 import dashboardRoutes from "./routes/admin/dashboardRoutes.js"
 
-
 import cors from "cors"
 import { adminAuth } from "./middlewares/adminAuth.js"
 import playlistModel from "./models/user/playlistModel.js"
 const app = express()
 app.use(express.json());
-app.use(cors());
 
 app.use(cors({
     origin: "*",
